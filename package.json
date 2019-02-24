@@ -1,0 +1,30 @@
+{
+  "name": "mars-insight-weather-node",
+  "version": "0.1.0",
+  "main": "./lib/mars-insight-weather-node.js",
+  "description": "Mars Insight weather API for nodeJS",
+  "bugs": {
+    "url": "https://github.com/gablau/mars-insight-weather-node/issues"
+  },
+  "homepage": "https://github.com/gablau/mars-insight-weather-node",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gablau/mars-insight-weather-node.git"
+  },
+  "keywords": [
+    "mars",
+    "insight",
+    "weather",
+    "nasa",
+    "mars weather",
+    "mars weather insight",
+    "mars weather insight nasa"
+  ],
+  "author": "Gabriele Lauricella <gab.lau@gmail.com> (https://github.com/gablau)",
+  "license": "MIT",
+  "dependencies": {
+    "convert-units": "^2.3.4",
+    "request": "2.x",
+    "round10": "^1.0.3"
+  }
+}
