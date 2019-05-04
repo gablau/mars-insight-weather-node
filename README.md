@@ -97,7 +97,7 @@ marsweather.request(function(err, response){
 ```
 
 Example single sol structure:
-```javascript
+```json
   {
     "First_UTC": "2019-02-20T12:36:11Z", 
     "Last_UTC": "2019-02-21T13:15:46Z", 
@@ -147,6 +147,13 @@ Example single sol structure:
   }, 
 
 ```
+
+## Running Unit Tests and Code coverage
+
+Then simply run test this command: ```npm run test```
+
+For code coverage run this command: ```npm run coverage```
+
 ---
 ## Credits
 
