@@ -7,6 +7,7 @@ describe("Testing Mars Insight Weather Node:", function () {
 
 	this.slow(500);
 	this.timeout(2000);
+	
 
 	it("Request + getLatestSol", function (done) {
 
@@ -14,7 +15,6 @@ describe("Testing Mars Insight Weather Node:", function () {
 
 		marsweather.request(function(err, response){
 			const latestSol = this.getLatestSol();
-			//console.log (latestSol);
 			latestSol.should.have.properties(["AT", "PRE", "HWS", "First_UTC", "Last_UTC", "WD", "Season"]);
 			latestSol.AT.should.have.properties(["av", "ct", "mn", "mx"]);
 			latestSol.PRE.should.have.properties(["av", "ct", "mn", "mx"]);
@@ -31,7 +31,6 @@ describe("Testing Mars Insight Weather Node:", function () {
 
 		marsweather.request(function(err, response){
 			const latestSolKey = this.getLatestSolKey();
-			//console.log (latestSolKey);
 			(parseInt(latestSolKey)).should.be.Number();
 			(parseInt(latestSolKey)).should.be.greaterThan(100);
 			done();
@@ -47,7 +46,6 @@ describe("Testing Mars Insight Weather Node:", function () {
 
 		marsweather.request(function(err, response){
 			const solKeys = this.getSolKeys();
-			//console.log (solKeys);
 			solKeys.should.be.Array();
 			solKeys.length.should.be.greaterThan(5);
 			(parseInt(solKeys[0])).should.be.Number();
@@ -65,7 +63,6 @@ describe("Testing Mars Insight Weather Node:", function () {
 		marsweather.request(function(err, response){
 			const latestSolKey = this.getLatestSolKey();
 			const sol = this.getSol(latestSolKey);
-			//console.log (latestSol);
 			sol.should.have.properties(["AT", "PRE", "HWS", "First_UTC", "Last_UTC", "WD", "Season"]);
 			sol.AT.should.have.properties(["av", "ct", "mn", "mx"]);
 			sol.PRE.should.have.properties(["av", "ct", "mn", "mx"]);
@@ -81,7 +78,6 @@ describe("Testing Mars Insight Weather Node:", function () {
 
 		marsweather.request(function(err, response){
 			const rawData = this.getRawData();
-			//console.log (rawData);
 			rawData.should.have.properties(["sol_keys", "validity_checks"]);
 			rawData.should.have.properties(this.getSolKeys());
 			done();
@@ -95,7 +91,6 @@ describe("Testing Mars Insight Weather Node:", function () {
 
 		marsweather.request(function(err, response){
 			const rawData = this.getConvertedRawData();
-			//console.log (rawData);
 			rawData.should.have.properties(["sol_keys", "validity_checks"]);
 			rawData.should.have.properties(this.getSolKeys());
 			done();
@@ -135,7 +130,6 @@ describe("Testing Mars Insight Weather Node:", function () {
 
 		marsweather.request(function(err, response){
 			const latestSol = this.getLatestSol();
-			//console.log (latestSol);
 			latestSol.should.have.properties(["AT", "PRE", "HWS", "First_UTC", "Last_UTC", "WD", "Season"]);
 			latestSol.AT.should.have.properties(["av", "ct", "mn", "mx"]);
 			latestSol.PRE.should.have.properties(["av", "ct", "mn", "mx"]);
@@ -151,7 +145,6 @@ describe("Testing Mars Insight Weather Node:", function () {
 
 		marsweather.request(function(err, response){
 			const latestSol = this.getLatestSol();
-			//console.log (latestSol);
 			latestSol.should.have.properties(["AT", "PRE", "HWS", "First_UTC", "Last_UTC", "WD", "Season"]);
 			latestSol.AT.should.have.properties(["av", "ct", "mn", "mx"]);
 			latestSol.PRE.should.have.properties(["av", "ct", "mn", "mx"]);
@@ -159,7 +152,6 @@ describe("Testing Mars Insight Weather Node:", function () {
 
 			marsweather.request(function(err, response){
 				const latestSol = this.getLatestSol();
-				//console.log (latestSol);
 				latestSol.should.have.properties(["AT", "PRE", "HWS", "First_UTC", "Last_UTC", "WD", "Season"]);
 				latestSol.AT.should.have.properties(["av", "ct", "mn", "mx"]);
 				latestSol.PRE.should.have.properties(["av", "ct", "mn", "mx"]);
@@ -190,12 +182,10 @@ describe("Testing Mars Insight Weather Node:", function () {
 
 		marsweather.request(function(err, response){
 			const rawData = marsweather.getRawData();
-			//console.log (rawData[150].AT);
 			rawData.should.have.properties(["sol_keys", "validity_checks"]);
 			rawData.should.have.properties(this.getSolKeys());
 
 			const convRawData = marsweather.getConvertedRawData();
-			//console.log (convRawData[150].AT);
 			convRawData.should.have.properties(["sol_keys", "validity_checks"]);
 			convRawData.should.have.properties(this.getSolKeys());
 
@@ -211,12 +201,10 @@ describe("Testing Mars Insight Weather Node:", function () {
 
 		marsweather.request(function(err, response){
 			const rawData = marsweather.getRawData();
-			//console.log (rawData[150].AT);
 			rawData.should.have.properties(["sol_keys", "validity_checks"]);
 			rawData.should.have.properties(this.getSolKeys());
 
 			const convRawData = marsweather.getConvertedRawData();
-			//console.log (convRawData[150].AT);
 			convRawData.should.have.properties(["sol_keys", "validity_checks"]);
 			convRawData.should.have.properties(this.getSolKeys());
 

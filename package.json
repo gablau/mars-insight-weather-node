@@ -1,6 +1,6 @@
 {
   "name": "mars-insight-weather-node",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "main": "./lib/mars-insight-weather-node.js",
   "description": "Mars Insight weather API for nodeJS",
   "bugs": {
@@ -24,14 +24,14 @@
   "license": "MIT",
   "dependencies": {
     "convert-units": "^2.3.4",
-    "request": "^2.x",
+    "node-fetch": "^2.6.0",
     "round10": "^1.0.3"
   },
   "devDependencies": {
     "cross-dotenv": "^1.0.4",
     "env-cmd": "^8.0.2",
-    "mocha": "^6.x",
-    "nyc": "^14.x",
+    "mocha": "^7.x",
+    "nyc": "^15.x",
     "should": "^13.x"
   },
   "scripts": {
