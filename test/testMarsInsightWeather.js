@@ -1,5 +1,7 @@
 /* eslint-disable no-undef */
 require("should");
+const nock = require('nock');
+
 var MarsInsightWeather = require("./../lib/mars-insight-weather-node.js");
 
 describe("Testing Mars Insight Weather Node:", function () {
@@ -7,7 +9,6 @@ describe("Testing Mars Insight Weather Node:", function () {
 
 	this.slow(500);
 	this.timeout(2000);
-	
 
 	it("Request + getLatestSol", function (done) {
 
@@ -175,7 +176,6 @@ describe("Testing Mars Insight Weather Node:", function () {
 		done();	
 	});
 
-	
 	it("Request + different raw data", function (done) {
 
 		var marsweather = new MarsInsightWeather('F', 'bar', 'km/h');
@@ -209,6 +209,45 @@ describe("Testing Mars Insight Weather Node:", function () {
 			convRawData.should.have.properties(this.getSolKeys());
 
 			(rawData).should.be.eql(convRawData);
+			done();
+		});
+
+	});
+
+	it("Request + HTTP error 404", function (done) {
+
+		var marsweather = new MarsInsightWeather();
+
+		const scope = nock('https://mars.nasa.gov')
+			.get('/rss/api/?feed=weather&category=insight&feedtype=json&ver=1.0')
+			.reply(404, "NOT FOUND");
+
+		marsweather.request(function(err, response){
+			err.should.be.an.Object().and.not.be.empty();
+			err.should.have.properties(["response", "message"]);
+			err.name.should.be.eql('Error');
+			err.message.should.be.eql('404');
+			err.response.status.should.be.eql(404);
+			response.should.be.an.Object().and.be.empty();
+			done();
+		});
+
+	});
+
+	it("Request + HTTP error data is not json", function (done) {
+
+		var marsweather = new MarsInsightWeather();
+
+		const scope = nock('https://mars.nasa.gov')
+			.get('/rss/api/?feed=weather&category=insight&feedtype=json&ver=1.0')
+			.reply(200, "wrong data");
+
+		marsweather.request(function(err, response){
+			err.should.be.an.Object().and.not.be.empty();
+			err.should.have.properties(["type", "name"]);
+			err.name.should.be.eql('FetchError');
+			err.type.should.be.eql('invalid-json');
+  		response.should.be.an.Object().and.be.empty();
 			done();
 		});
 
