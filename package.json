@@ -1,6 +1,6 @@
 {
   "name": "mars-insight-weather-node",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "main": "./lib/mars-insight-weather-node.js",
   "description": "Mars Insight weather API for nodeJS",
   "bugs": {
