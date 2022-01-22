@@ -24,7 +24,7 @@
   "license": "MIT",
   "dependencies": {
     "convert-units": "^2.3.4",
-    "node-fetch": "^2.6.1",
+    "node-fetch": "^3.1.1",
     "round10": "^1.0.3"
   },
   "devDependencies": {
