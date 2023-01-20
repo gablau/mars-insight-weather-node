@@ -1,3 +1,10 @@
+## ⚠️ This repository has been archived ⚠️
+
+## This code is in a deprecated state
+
+## The code is still available but no security updates will be provided.
+  
+---
 # A simple NodeJS interface to [NASA Mars InSight Mission weather API](https://mars.nasa.gov/insight/weather/).
 
 
